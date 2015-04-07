@@ -45,8 +45,14 @@ $(document).ready(function() {
         $("#makeCall").val("Connect");
       } else {
         var endpoint = client.getEndpoint({"id" : $("#remoteId").val()});
-        call = endpoint.startAudioCall();
-        $("#makeCall").val("Disconnect");
+        $("#makeCall").val("Connecting...");
+        $("#makeCall")[0].disabled = true;
+        call = endpoint.startAudioCall({
+          onAnswer: function() {
+            $("#makeCall").val("Disconnect");
+            $("#makeCall")[0].disabled = false;
+          }
+        });
       }
   });
 });
