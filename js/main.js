@@ -21,7 +21,7 @@ $(document).ready(function() {
   client.listen('call', function(evt) {
        call = evt.call;
        if (call.initiator !== true) {
-           call.answer({constraints: {audio: true, video: false}});
+           call.answer({constraints: {audio: false, video: false}});
            call.listen('hangup', function() {
               call = null;
            });
