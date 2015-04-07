@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="description" content="Respoke Quickstart Demo App" />
   <script type='text/javascript' src='http://code.jquery.com/jquery-2.1.0.min.js'></script>
   <script type='text/javascript' src='https://cdn.respoke.io/respoke.min.js'></script>
   <script type='text/javascript' src='js/main.js'></script>
@@ -13,14 +12,10 @@
         <input id="endpoint" type="text" />
         <input id="doLogin" type="button" value="Connect" />
     </div>
-    <div id="messaging">
-        <ul id="messages"></ul><br />
-        Send To: 
-        <input id="remoteId" type="text" /><br />
-        <textarea id="textToSend" rows="2"></textarea><br />
-        <input id='sendMessage' type='button' value='Send Message' />
-        <input id='makeCall' type='button' value='Audio Call' />
-        <input id='endCall' type='button' value='Hang Up' />
+    <div id="other-user">
+        Friend Name:
+        <input id="remoteId" type="text" />
+        <input id="makeCall" type="button" value="Connect" />
     </div>
   </body>
 </html>
