@@ -9,12 +9,7 @@ var client = new respoke.Client({
 
 // listen for the 'connect' event
 client.listen('connect', function() {
-    $("#status").html("Connected to Respoke!");
-});
-
-// listen for incoming messages
-client.listen('message', function(evt) {
-    $("#messages").append("<li>"+evt.message.message+"</li>");
+    $("#status").html("Connected!");
 });
 
 // listen for and answer incoming calls
