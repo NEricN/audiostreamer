@@ -36,32 +36,15 @@ $("#doLogin").click(function() {
     });
 });
 
-// send a message to the far-end party
-$("#sendMessage").click(function(){
-
-    // get the recipient name
-    var remote = $("#remoteId").val();
-
-    // make an endpoint for that recipient
-    var endpoint = client.getEndpoint({"id" : remote});
-
-    // grab the text to send
-    var messageText = $("#textToSend").val();
-
-    // send it
-    endpoint.sendMessage({"message" : messageText});
-});
-
-// Create a call
+// Create a call, hangup on click again
 $("#makeCall").click(function() {
-    var endpoint = client.getEndpoint({"id" : $("#remoteId").val()});
-    call = endpoint.startAudioCall();
-});
-
-// Hang up the call
-$("#endCall").click(function() {
     if (call) {
-        call.hangup();
-        call = null;
+      call.hangup();
+      call = null;
+      $("#makeCall").val("Connect");
+    } else {
+      var endpoint = client.getEndpoint({"id" : $("#remoteId").val()});
+      call = endpoint.startAudioCall();
+      $("#makeCall").val("Disconnect");
     }
 });
